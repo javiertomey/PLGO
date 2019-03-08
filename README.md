@@ -1,6 +1,6 @@
 # PLGO
 
-PLGO es una herramienta para la gestión de la publicación y cambios del Plan de Gobierno de una administración pública. Permite gestionar para cada legislatura, departamentos, objetivos estratégicos y acciones o instrumentos asociados a dichos objetivos. 
+PLGO es una herramienta para la gestión de la publicación y cambios del Plan de Gobierno de una administración pública. Actualmente en uso por el Gobierno de Aragón. Permite gestionar para cada legislatura, departamentos, objetivos estratégicos y acciones o instrumentos asociados a dichos objetivos. 
 
 ## Getting Started
 

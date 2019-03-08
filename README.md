@@ -1,12 +1,12 @@
 # PLGO
 
-PLGO es una herramienta para la gestiÛn de la publicaciÛn y cambios del Plan de Gobierno de una administraciÛn p˙blica. Permite gestionar para cada legislatura, departamentos, objetivos estratÈgicos y acciones o instrumentos asociados a dichos objetivos. 
+PLGO es una herramienta para la gesti√≥n de la publicaci√≥n y cambios del Plan de Gobierno de una administraci√≥n p√∫blica. Permite gestionar para cada legislatura, departamentos, objetivos estrat√©gicos y acciones o instrumentos asociados a dichos objetivos. 
 
 ## Getting Started
 
-Una vez obtenido los archivos es necesario crear la base de datos, ya que el proyecto es de tipo Database-first. Se ha utilizado una base de datos Oracle pero podrÌa funcionar con otro tipo. Existen dos archivos sql en el directorio gettingstarted para ello. 
+Una vez obtenido los archivos es necesario crear la base de datos, ya que el proyecto es de tipo Database-first. Se ha utilizado una base de datos Oracle pero podr√≠a funcionar con otro tipo. Existen dos archivos sql en el directorio gettingstarted para ello. 
 
-Ser· necesario editar el archivo PLGOweb\web.config y configurar: la conexiÛn a la base de datos, el directorio ldap, el envÌo de correo y recepciÛn de alertas.
+Ser√° necesario editar el archivo PLGOweb\web.config y configurar: la conexi√≥n a la base de datos, el directorio ldap, el env√≠o de correo y recepci√≥n de alertas.
 
 
 ### Prerequisites
@@ -17,11 +17,11 @@ Microsoft Report Viewer 2015    https://www.microsoft.com/es-es/download/details
 
 Microsoft System CLR Types for SQL Server 2014    https://www.microsoft.com/es-es/download/confirmation.aspx?id=42295
 
-Si sÛlo se desea ejecutar ser· necesario servidor IIS y base de datos (configuradas librerÌas con Oracle 11).
+Si s√≥lo se desea ejecutar ser√° necesario servidor IIS y base de datos (configuradas librer√≠as con Oracle 11).
 
-El directorio PLGOweb/View contiene las url para la obtenciÛn de los datos en json para poder integrar el contenido del plan.
+El directorio PLGOweb/View contiene las url para la obtenci√≥n de los datos en json para poder integrar el contenido del plan.
 
-Para abrir el proyecto es necesario Microsoft Visual Studio Community 2015 o similar, el proyecto est· configurado con dependencias de paquetes NuGet.
+Para abrir el proyecto es necesario Microsoft Visual Studio Community 2015 o similar, el proyecto est√° configurado con dependencias de paquetes NuGet.
 
 
 ## Built With
@@ -42,4 +42,4 @@ DocumentFormat.OpenXML
 
 ## License
 
-This project is licensed under the European Union Public Licence 1.2 - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the European Union Public Licence 1.2 - see the [LICENSE.txt](LICENSE.txt) file for details

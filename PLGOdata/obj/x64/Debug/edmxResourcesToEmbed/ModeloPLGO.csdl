@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ES.Aragon.PLGO.data" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_UserClaims_Users" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_UserLogins_Users" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="6" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_UserClaims_Users" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_UserLogins_Users" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+    <NavigationProperty Name="USUARIOS" Relationship="ES.Aragon.PLGO.data.SYS_C007612" FromRole="AspNetUsers" ToRole="USUARIOS" />
+  </EntityType>
+  <Association Name="FK_UserClaims_Users">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogins_Users">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <AssociationSet Name="FK_UserClaims_Users" Association="Self.FK_UserClaims_Users">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogins_Users" Association="Self.FK_UserLogins_Users">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="LEGISLATURA" EntityType="ES.Aragon.PLGO.data.LEGISLATURA" />
+    <EntitySet Name="CONTENIDO" EntityType="ES.Aragon.PLGO.data.CONTENIDO" />
+    <EntitySet Name="DEPARTAMENTO" EntityType="ES.Aragon.PLGO.data.DEPARTAMENTO" />
+    <EntitySet Name="ESTADOS_SEGUIMIENTO" EntityType="ES.Aragon.PLGO.data.ESTADOS_SEGUIMIENTO" />
+    <EntitySet Name="ESTADOS_VALIDACION" EntityType="ES.Aragon.PLGO.data.ESTADOS_VALIDACION" />
+    <EntitySet Name="TIPO_CAMBIO_CONTENIDO" EntityType="ES.Aragon.PLGO.data.TIPO_CAMBIO_CONTENIDO" />
+    <EntitySet Name="USUARIOS" EntityType="ES.Aragon.PLGO.data.USUARIOS" />
+    <AssociationSet Name="SYS_C007628" Association="ES.Aragon.PLGO.data.SYS_C007628">
+      <End Role="ESTADOS_SEGUIMIENTO" EntitySet="ESTADOS_SEGUIMIENTO" />
+      <End Role="ACCION" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007629" Association="ES.Aragon.PLGO.data.SYS_C007629">
+      <End Role="ESTADOS_SEGUIMIENTO" EntitySet="ESTADOS_SEGUIMIENTO" />
+      <End Role="ACCION" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007640" Association="ES.Aragon.PLGO.data.SYS_C007640">
+      <End Role="OBJETIVO" EntitySet="CONTENIDO" />
+      <End Role="ACCION" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007612" Association="ES.Aragon.PLGO.data.SYS_C007612">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="CONTENIDO_R01" Association="ES.Aragon.PLGO.data.CONTENIDO_R01">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="CONTENIDO_R02" Association="ES.Aragon.PLGO.data.CONTENIDO_R02">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="CONTENIDO_R03" Association="ES.Aragon.PLGO.data.CONTENIDO_R03">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="CONTENIDO_R04" Association="ES.Aragon.PLGO.data.CONTENIDO_R04">
+      <End Role="ESTADOS_VALIDACION" EntitySet="ESTADOS_VALIDACION" />
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="CONTENIDO_R05" Association="ES.Aragon.PLGO.data.CONTENIDO_R05">
+      <End Role="TIPO_CAMBIO_CONTENIDO" EntitySet="TIPO_CAMBIO_CONTENIDO" />
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="CONTENIDO_R06" Association="ES.Aragon.PLGO.data.CONTENIDO_R06">
+      <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007624" Association="ES.Aragon.PLGO.data.SYS_C007624">
+      <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C007636" Association="ES.Aragon.PLGO.data.SYS_C007636">
+      <End Role="LEGISLATURA" EntitySet="LEGISLATURA" />
+      <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="LEGISLATURA">
+    <Key>
+      <PropertyRef Name="LEGISLATURA_ID" />
+    </Key>
+    <Property Name="LEGISLATURA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ACTUAL" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="DEPARTAMENTO" Relationship="ES.Aragon.PLGO.data.SYS_C007636" FromRole="LEGISLATURA" ToRole="DEPARTAMENTO" />
+  </EntityType>
+  <EntityType Name="ACCION" BaseType="ES.Aragon.PLGO.data.CONTENIDO">
+    <Property Name="SEGUIMIENTO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SEGUIMIENTO_PDTE_VAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="RECURSOS_HUMANOS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="RECURSOS_HUMANOS_PDTE_VAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="COSTE_ECONOMICO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="COSTE_ECONOMICO_PDTE_VAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="INSTRUMENTOS_ACT" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="INSTRUMENTOS_ACT_PDTE_VAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MEDIOS_OTROS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MEDIOS_OTROS_PDTE_VAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TEMPORALIDAD" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TEMPORALIDAD_PDTE_VAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="INDICADOR_SEGUIMIENTO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="INDICADOR_SEGUIMIENTO_PDTE_VAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="OBJETIVO_CONTENIDO_ID" Type="Int32" Nullable="false" />
+    <Property Name="ESTADO_SEGUIMIENTO_ID" Type="Int32" />
+    <Property Name="ESTADO_SEGUIMIENTO_ID_PDTE_VAL" Type="Int32" />
+    <NavigationProperty Name="ESTADOS_SEGUIMIENTO" Relationship="ES.Aragon.PLGO.data.SYS_C007628" FromRole="ACCION" ToRole="ESTADOS_SEGUIMIENTO" />
+    <NavigationProperty Name="ESTADOS_SEGUIMIENTO_PDTE_VAL" Relationship="ES.Aragon.PLGO.data.SYS_C007629" FromRole="ACCION" ToRole="ESTADOS_SEGUIMIENTO" />
+    <NavigationProperty Name="OBJETIVO" Relationship="ES.Aragon.PLGO.data.SYS_C007640" FromRole="ACCION" ToRole="OBJETIVO" />
+    <Property Name="ORGANO_RESPONSABLE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ORGANO_RESPONSABLE_PDTE_VAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CONTENIDO" Abstract="true">
+    <Key>
+      <PropertyRef Name="CONTENIDO_ID" />
+    </Key>
+    <Property Name="CONTENIDO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AUTOR_CREACION_USUARIO_ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FECHA_CREACION" Type="DateTime" Nullable="false" />
+    <Property Name="AUTOR_MODIFICACION_USUARIO_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="FECHA_MODIFICACION" Type="DateTime" />
+    <Property Name="VALIDADOR_USUARIO_ID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ESTADO_VALIDACION_ID" Type="Int32" Nullable="false" />
+    <Property Name="TIPO_CAMBIO_CONTENIDO_ID" Type="Int32" />
+    <Property Name="DEPARTAMENTO_ID" Type="Int32" Nullable="false" />
+    <Property Name="VISIBLE" Type="Boolean" Nullable="false" />
+    <Property Name="COMENTARIO_VALIDADOR" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AUTOR_CREACION" Relationship="ES.Aragon.PLGO.data.CONTENIDO_R01" FromRole="CONTENIDO" ToRole="USUARIOS" />
+    <NavigationProperty Name="AUTOR_MODIFICACION" Relationship="ES.Aragon.PLGO.data.CONTENIDO_R02" FromRole="CONTENIDO" ToRole="USUARIOS" />
+    <NavigationProperty Name="VALIDADOR" Relationship="ES.Aragon.PLGO.data.CONTENIDO_R03" FromRole="CONTENIDO" ToRole="USUARIOS" />
+    <NavigationProperty Name="ESTADOS_VALIDACION" Relationship="ES.Aragon.PLGO.data.CONTENIDO_R04" FromRole="CONTENIDO" ToRole="ESTADOS_VALIDACION" />
+    <NavigationProperty Name="TIPO_CAMBIO_CONTENIDO" Relationship="ES.Aragon.PLGO.data.CONTENIDO_R05" FromRole="CONTENIDO" ToRole="TIPO_CAMBIO_CONTENIDO" />
+    <NavigationProperty Name="DEPARTAMENTO" Relationship="ES.Aragon.PLGO.data.CONTENIDO_R06" FromRole="CONTENIDO" ToRole="DEPARTAMENTO" />
+  </EntityType>
+  <EntityType Name="DEPARTAMENTO">
+    <Key>
+      <PropertyRef Name="DEPARTAMENTO_ID" />
+    </Key>
+    <Property Name="DEPARTAMENTO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="LEGISLATURA_ID" Type="Int32" Nullable="false" />
+    <Property Name="VISIBLE" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CONTENIDO" Relationship="ES.Aragon.PLGO.data.CONTENIDO_R06" FromRole="DEPARTAMENTO" ToRole="CONTENIDO" />
+    <NavigationProperty Name="USUARIOS" Relationship="ES.Aragon.PLGO.data.SYS_C007624" FromRole="DEPARTAMENTO" ToRole="USUARIOS" />
+    <NavigationProperty Name="LEGISLATURA" Relationship="ES.Aragon.PLGO.data.SYS_C007636" FromRole="DEPARTAMENTO" ToRole="LEGISLATURA" />
+  </EntityType>
+  <EntityType Name="ESTADOS_SEGUIMIENTO">
+    <Key>
+      <PropertyRef Name="ESTADO_SEGUIMIENTO_ID" />
+    </Key>
+    <Property Name="ESTADO_SEGUIMIENTO_ID" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ACCION" Relationship="ES.Aragon.PLGO.data.SYS_C007628" FromRole="ESTADOS_SEGUIMIENTO" ToRole="ACCION" />
+    <NavigationProperty Name="ACCION_PDTE_VAL" Relationship="ES.Aragon.PLGO.data.SYS_C007629" FromRole="ESTADOS_SEGUIMIENTO" ToRole="ACCION" />
+  </EntityType>
+  <EntityType Name="ESTADOS_VALIDACION">
+    <Key>
+      <PropertyRef Name="ESTADO_VALIDACION_ID" />
+    </Key>
+    <Property Name="ESTADO_VALIDACION_ID" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CONTENIDO" Relationship="ES.Aragon.PLGO.data.CONTENIDO_R04" FromRole="ESTADOS_VALIDACION" ToRole="CONTENIDO" />
+  </EntityType>
+  <EntityType Name="OBJETIVO" BaseType="ES.Aragon.PLGO.data.CONTENIDO">
+    <NavigationProperty Name="ACCION" Relationship="ES.Aragon.PLGO.data.SYS_C007640" FromRole="OBJETIVO" ToRole="ACCION" />
+    <Property Name="OBJETIVO_ESTRATEGICO_PDTE_VAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="OBJETIVO_ESTRATEGICO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TIPO_CAMBIO_CONTENIDO">
+    <Key>
+      <PropertyRef Name="TIPO_CAMBIO_ID" />
+    </Key>
+    <Property Name="TIPO_CAMBIO_ID" Type="Int32" Nullable="false" />
+    <Property Name="TIPO_CAMBIO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CONTENIDO" Relationship="ES.Aragon.PLGO.data.CONTENIDO_R05" FromRole="TIPO_CAMBIO_CONTENIDO" ToRole="CONTENIDO" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="USUARIOID" />
+    </Key>
+    <Property Name="USUARIOID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDOS" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="DEPARTAMENTOID" Type="Int32" Nullable="false" />
+    <Property Name="ULTIMO_ACCESO" Type="DateTime" />
+    <Property Name="FECHA_ALTA" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ES.Aragon.PLGO.data.SYS_C007612" FromRole="USUARIOS" ToRole="AspNetUsers" />
+    <NavigationProperty Name="CONTENIDO_CREADO" Relationship="ES.Aragon.PLGO.data.CONTENIDO_R01" FromRole="USUARIOS" ToRole="CONTENIDO" />
+    <NavigationProperty Name="CONTENIDO_MODIFICADO" Relationship="ES.Aragon.PLGO.data.CONTENIDO_R02" FromRole="USUARIOS" ToRole="CONTENIDO" />
+    <NavigationProperty Name="CONTENIDO_VALIDADO" Relationship="ES.Aragon.PLGO.data.CONTENIDO_R03" FromRole="USUARIOS" ToRole="CONTENIDO" />
+    <NavigationProperty Name="DEPARTAMENTO" Relationship="ES.Aragon.PLGO.data.SYS_C007624" FromRole="USUARIOS" ToRole="DEPARTAMENTO" />
+  </EntityType>
+  <Association Name="SYS_C007628">
+    <End Type="ES.Aragon.PLGO.data.ESTADOS_SEGUIMIENTO" Role="ESTADOS_SEGUIMIENTO" Multiplicity="0..1" />
+    <End Type="ES.Aragon.PLGO.data.ACCION" Role="ACCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS_SEGUIMIENTO">
+        <PropertyRef Name="ESTADO_SEGUIMIENTO_ID" />
+      </Principal>
+      <Dependent Role="ACCION">
+        <PropertyRef Name="ESTADO_SEGUIMIENTO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007629">
+    <End Type="ES.Aragon.PLGO.data.ESTADOS_SEGUIMIENTO" Role="ESTADOS_SEGUIMIENTO" Multiplicity="0..1" />
+    <End Type="ES.Aragon.PLGO.data.ACCION" Role="ACCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS_SEGUIMIENTO">
+        <PropertyRef Name="ESTADO_SEGUIMIENTO_ID" />
+      </Principal>
+      <Dependent Role="ACCION">
+        <PropertyRef Name="ESTADO_SEGUIMIENTO_ID_PDTE_VAL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007640">
+    <End Type="ES.Aragon.PLGO.data.OBJETIVO" Role="OBJETIVO" Multiplicity="1" />
+    <End Type="ES.Aragon.PLGO.data.ACCION" Role="ACCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJETIVO">
+        <PropertyRef Name="CONTENIDO_ID" />
+      </Principal>
+      <Dependent Role="ACCION">
+        <PropertyRef Name="OBJETIVO_CONTENIDO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007612">
+    <End Type="ES.Aragon.PLGO.data.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="ES.Aragon.PLGO.data.USUARIOS" Role="USUARIOS" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="USUARIOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTENIDO_R01">
+    <End Type="ES.Aragon.PLGO.data.USUARIOS" Role="USUARIOS" Multiplicity="1" />
+    <End Type="ES.Aragon.PLGO.data.CONTENIDO" Role="CONTENIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="USUARIOID" />
+      </Principal>
+      <Dependent Role="CONTENIDO">
+        <PropertyRef Name="AUTOR_CREACION_USUARIO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTENIDO_R02">
+    <End Type="ES.Aragon.PLGO.data.USUARIOS" Role="USUARIOS" Multiplicity="0..1" />
+    <End Type="ES.Aragon.PLGO.data.CONTENIDO" Role="CONTENIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="USUARIOID" />
+      </Principal>
+      <Dependent Role="CONTENIDO">
+        <PropertyRef Name="AUTOR_MODIFICACION_USUARIO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTENIDO_R03">
+    <End Type="ES.Aragon.PLGO.data.USUARIOS" Role="USUARIOS" Multiplicity="0..1" />
+    <End Type="ES.Aragon.PLGO.data.CONTENIDO" Role="CONTENIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="USUARIOID" />
+      </Principal>
+      <Dependent Role="CONTENIDO">
+        <PropertyRef Name="VALIDADOR_USUARIO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTENIDO_R04">
+    <End Type="ES.Aragon.PLGO.data.ESTADOS_VALIDACION" Role="ESTADOS_VALIDACION" Multiplicity="1" />
+    <End Type="ES.Aragon.PLGO.data.CONTENIDO" Role="CONTENIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS_VALIDACION">
+        <PropertyRef Name="ESTADO_VALIDACION_ID" />
+      </Principal>
+      <Dependent Role="CONTENIDO">
+        <PropertyRef Name="ESTADO_VALIDACION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTENIDO_R05">
+    <End Type="ES.Aragon.PLGO.data.TIPO_CAMBIO_CONTENIDO" Role="TIPO_CAMBIO_CONTENIDO" Multiplicity="0..1" />
+    <End Type="ES.Aragon.PLGO.data.CONTENIDO" Role="CONTENIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_CAMBIO_CONTENIDO">
+        <PropertyRef Name="TIPO_CAMBIO_ID" />
+      </Principal>
+      <Dependent Role="CONTENIDO">
+        <PropertyRef Name="TIPO_CAMBIO_CONTENIDO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTENIDO_R06">
+    <End Type="ES.Aragon.PLGO.data.DEPARTAMENTO" Role="DEPARTAMENTO" Multiplicity="1" />
+    <End Type="ES.Aragon.PLGO.data.CONTENIDO" Role="CONTENIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTAMENTO">
+        <PropertyRef Name="DEPARTAMENTO_ID" />
+      </Principal>
+      <Dependent Role="CONTENIDO">
+        <PropertyRef Name="DEPARTAMENTO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007624">
+    <End Type="ES.Aragon.PLGO.data.DEPARTAMENTO" Role="DEPARTAMENTO" Multiplicity="1" />
+    <End Type="ES.Aragon.PLGO.data.USUARIOS" Role="USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTAMENTO">
+        <PropertyRef Name="DEPARTAMENTO_ID" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="DEPARTAMENTOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C007636">
+    <End Type="ES.Aragon.PLGO.data.LEGISLATURA" Role="LEGISLATURA" Multiplicity="1" />
+    <End Type="ES.Aragon.PLGO.data.DEPARTAMENTO" Role="DEPARTAMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LEGISLATURA">
+        <PropertyRef Name="LEGISLATURA_ID" />
+      </Principal>
+      <Dependent Role="DEPARTAMENTO">
+        <PropertyRef Name="LEGISLATURA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

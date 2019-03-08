@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Autor: Javier Tomey. Gobierno de Aragón
+
+Éste programa es software libre: usted tiene derecho a redistribuirlo y/o
+modificarlo bajo los términos de la Licencia EUPL European Public License 
+publicada por el organismo IDABC de la Comisión Europea, en su versión 1.1.
+o posteriores.
+
+Éste programa se distribuye de buena fe, pero SIN NINGUNA GARANTÍA, incluso sin 
+las presuntas garantías implícitas de USABILIDAD o ADECUACIÓN A PROPÓSITO CONCRETO. 
+Para mas información consulte la Licencia EUPL European Public License.
+
+Usted recibe una copia de la Licencia EUPL European Public License 
+junto con este programa, si por algún motivo no le es posible visualizarla, 
+puede consultarla en la siguiente URL: http://ec.europa.eu/idabc/servlets/Docb4f4.pdf?id=31980
+
+You should have received a copy of the EUPL European Public 
+License along with this program.  If not, see http://ec.europa.eu/idabc/servlets/Docbb6d.pdf?id=31979
+
+Vous devez avoir reçu une copie de la EUPL European Public
+License avec ce programme. Si non, voir http://ec.europa.eu/idabc/servlets/Doc5a41.pdf?id=31983
+
+Sie sollten eine Kopie der EUPL European Public License zusammen mit
+diesem Programm. Wenn nicht, finden Sie da http://ec.europa.eu/idabc/servlets/Doc9dbe.pdf?id=31977
+-->
+<xs:schema id="informePLGO" targetNamespace="http://tempuri.org/informePLGO.xsd" xmlns:mstns="http://tempuri.org/informePLGO.xsd" xmlns="http://tempuri.org/informePLGO.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Web.config)" ParameterPrefix=":" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ConnectionString.ConnectionString" Provider="Oracle.ManagedDataAccess.Client" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="informePLGO" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="informePLGO" msprop:Generator_UserDSName="informePLGO">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn" msprop:Generator_UserColumnName="DEPARTAMENTO" type="xs:string" minOccurs="0" />
+              <xs:element name="OBJETIVO_ESTRATEGICO" msprop:Generator_ColumnVarNameInTable="columnOBJETIVO_ESTRATEGICO" msprop:Generator_ColumnPropNameInRow="OBJETIVO_ESTRATEGICO" msprop:Generator_ColumnPropNameInTable="OBJETIVO_ESTRATEGICOColumn" msprop:Generator_UserColumnName="OBJETIVO_ESTRATEGICO" type="xs:string" minOccurs="0" />
+              <xs:element name="INSTRUMENTOS_ACT" msprop:Generator_ColumnVarNameInTable="columnINSTRUMENTOS_ACT" msprop:Generator_ColumnPropNameInRow="INSTRUMENTOS_ACT" msprop:Generator_ColumnPropNameInTable="INSTRUMENTOS_ACTColumn" msprop:Generator_UserColumnName="INSTRUMENTOS_ACT" type="xs:string" minOccurs="0" />
+              <xs:element name="ORGANO_RESPONSABLE" msprop:Generator_ColumnVarNameInTable="columnORGANO_RESPONSABLE" msprop:Generator_ColumnPropNameInRow="ORGANO_RESPONSABLE" msprop:Generator_ColumnPropNameInTable="ORGANO_RESPONSABLEColumn" msprop:Generator_UserColumnName="ORGANO_RESPONSABLE" type="xs:string" minOccurs="0" />
+              <xs:element name="RECURSOS_HUMANOS" msprop:Generator_ColumnVarNameInTable="columnRECURSOS_HUMANOS" msprop:Generator_ColumnPropNameInRow="RECURSOS_HUMANOS" msprop:Generator_ColumnPropNameInTable="RECURSOS_HUMANOSColumn" msprop:Generator_UserColumnName="RECURSOS_HUMANOS" type="xs:string" minOccurs="0" />
+              <xs:element name="COSTE_ECONOMICO" msprop:Generator_ColumnVarNameInTable="columnCOSTE_ECONOMICO" msprop:Generator_ColumnPropNameInRow="COSTE_ECONOMICO" msprop:Generator_ColumnPropNameInTable="COSTE_ECONOMICOColumn" msprop:Generator_UserColumnName="COSTE_ECONOMICO" type="xs:string" minOccurs="0" />
+              <xs:element name="MEDIOS_OTROS" msprop:Generator_ColumnVarNameInTable="columnMEDIOS_OTROS" msprop:Generator_ColumnPropNameInRow="MEDIOS_OTROS" msprop:Generator_ColumnPropNameInTable="MEDIOS_OTROSColumn" msprop:Generator_UserColumnName="MEDIOS_OTROS" type="xs:string" minOccurs="0" />
+              <xs:element name="TEMPORALIDAD" msprop:Generator_ColumnVarNameInTable="columnTEMPORALIDAD" msprop:Generator_ColumnPropNameInRow="TEMPORALIDAD" msprop:Generator_ColumnPropNameInTable="TEMPORALIDADColumn" msprop:Generator_UserColumnName="TEMPORALIDAD" type="xs:string" minOccurs="0" />
+              <xs:element name="SEGUIMIENTO" msprop:Generator_ColumnVarNameInTable="columnSEGUIMIENTO" msprop:Generator_ColumnPropNameInRow="SEGUIMIENTO" msprop:Generator_ColumnPropNameInTable="SEGUIMIENTOColumn" msprop:Generator_UserColumnName="SEGUIMIENTO" type="xs:string" minOccurs="0" />
+              <xs:element name="ESTADO_SEGUIMIENTO" msprop:Generator_ColumnVarNameInTable="columnESTADO_SEGUIMIENTO" msprop:Generator_ColumnPropNameInRow="ESTADO_SEGUIMIENTO" msprop:Generator_ColumnPropNameInTable="ESTADO_SEGUIMIENTOColumn" msprop:Generator_UserColumnName="ESTADO_SEGUIMIENTO" type="xs:string" minOccurs="0" />
+              <xs:element name="FECHA_ACTUALIZACION" msprop:Generator_ColumnVarNameInTable="columnFECHA_ACTUALIZACION" msprop:Generator_ColumnPropNameInRow="FECHA_ACTUALIZACION" msprop:Generator_ColumnPropNameInTable="FECHA_ACTUALIZACIONColumn" msprop:Generator_UserColumnName="FECHA_ACTUALIZACION" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ORDEN_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnORDEN_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="ORDEN_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="ORDEN_DEPARTAMENTOColumn" msprop:Generator_UserColumnName="ORDEN_DEPARTAMENTO" type="xs:int" minOccurs="0" />
+              <xs:element name="PORCENTAJE_AVANCE" msprop:Generator_ColumnVarNameInTable="columnPORCENTAJE_AVANCE" msprop:Generator_ColumnPropNameInRow="PORCENTAJE_AVANCE" msprop:Generator_ColumnPropNameInTable="PORCENTAJE_AVANCEColumn" msprop:Generator_UserColumnName="PORCENTAJE_AVANCE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

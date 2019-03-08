@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c68f3ae5ab5e408b9f8aaa7c1014e1be" Name="Diagram1">
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.AspNetRoles" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.AspNetUsers" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.FK_UserClaims_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.FK_UserLogins_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.LEGISLATURA" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.CONTENIDO" Width="1.5" PointX="7.5" PointY="3.375" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.DEPARTAMENTO" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.ESTADOS_SEGUIMIENTO" Width="1.5" PointX="9.75" PointY="1.875" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.ESTADOS_VALIDACION" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.OBJETIVO" Width="1.625" PointX="9.75" PointY="4.5" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.TIPO_CAMBIO_CONTENIDO" Width="1.5" PointX="7.625" PointY="9" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.CONTENIDO_R04" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.CONTENIDO_R05" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.CONTENIDO_R06" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.SYS_C007636" />
+        <InheritanceConnector EntityType="ES.Aragon.PLGO.data.OBJETIVO" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.USUARIOS" Width="1.5" PointX="5.125" PointY="3.125" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.SYS_C007612" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.CONTENIDO_R01" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.CONTENIDO_R02" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.CONTENIDO_R03" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.SYS_C007624" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.ACCION" Width="1.5" PointX="12.125" PointY="2" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.SYS_C008228" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.SYS_C008229" />
+        <AssociationConnector Association="ES.Aragon.PLGO.data.SYS_C008231" />
+        <InheritanceConnector EntityType="ES.Aragon.PLGO.data.ACCION" />
+        <EntityTypeShape EntityType="ES.Aragon.PLGO.data.APP_ARCHIVOS_GENERALES" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

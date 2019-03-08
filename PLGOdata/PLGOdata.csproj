@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E7A39BA-FA2F-4664-9464-24EA7D382DD9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PLGOdata</RootNamespace>
+    <AssemblyName>PLGOdata</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.8.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.8.1\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACCION.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="APP_ARCHIVOS_GENERALES.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetRoles.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaims.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogins.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUsers.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONTENIDO.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DEPARTAMENTO.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dominio\Entities.cs" />
+    <Compile Include="Otros\AppPLGOdata.cs" />
+    <Compile Include="Otros\InformesExcel.cs" />
+    <Compile Include="Otros\Utils.cs" />
+    <Compile Include="Dominio\LEGISLATURA.cs" />
+    <Compile Include="Dominio\DEPARTAMENTO.cs" />
+    <Compile Include="Dominio\USUARIOS.cs" />
+    <Compile Include="Dominio\CONTENIDO.cs" />
+    <Compile Include="Dominio\ACCION.cs" />
+    <Compile Include="Dominio\OBJETIVO.cs" />
+    <Compile Include="Dominio\AspNetRoles.cs" />
+    <Compile Include="Dominio\ESTADOS_SEGUIMIENTO.cs" />
+    <Compile Include="Dominio\ESTADOS_VALIDACION.cs" />
+    <Compile Include="Dominio\TIPO_CAMBIO_CONTENIDO.cs" />
+    <Compile Include="ESTADOS_SEGUIMIENTO.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ESTADOS_VALIDACION.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LEGISLATURA.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloPLGO.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloPLGO.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloPLGO.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloPLGO.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloPLGO.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="OBJETIVO.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\InformeDepartamento.cs" />
+    <Compile Include="Otros\Json.cs" />
+    <Compile Include="Otros\JsonCustomResolver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TIPO_CAMBIO_CONTENIDO.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIOS.cs">
+      <DependentUpon>ModeloPLGO.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="ModeloPLGO.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloPLGO.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModeloPLGO.edmx.diagram">
+      <DependentUpon>ModeloPLGO.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="PLGOdata2.licenseheader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModeloPLGO.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloPLGO.edmx</DependentUpon>
+      <LastGenOutput>ModeloPLGO.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModeloPLGO.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloPLGO.edmx</DependentUpon>
+      <LastGenOutput>ModeloPLGO.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1 @@
+C:\PROYECTOS\SVN\PLGO\src\PLGOtest\obj\x64\Debug\PLGO.Tests.csprojResolveAssemblyReference.cache

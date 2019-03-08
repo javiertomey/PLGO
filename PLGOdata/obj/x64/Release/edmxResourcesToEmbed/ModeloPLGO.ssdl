@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ES.Aragon.PLGO.data.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACCION">
+    <Key>
+      <PropertyRef Name="CONTENIDO_ID" />
+    </Key>
+    <Property Name="CONTENIDO_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="RECURSOS_HUMANOS" Type="varchar2" MaxLength="2000" />
+    <Property Name="RECURSOS_HUMANOS_PDTE_VAL" Type="varchar2" MaxLength="2000" />
+    <Property Name="COSTE_ECONOMICO" Type="varchar2" MaxLength="2000" />
+    <Property Name="COSTE_ECONOMICO_PDTE_VAL" Type="varchar2" MaxLength="2000" />
+    <Property Name="INSTRUMENTOS_ACT" Type="varchar2" MaxLength="2000" />
+    <Property Name="INSTRUMENTOS_ACT_PDTE_VAL" Type="varchar2" MaxLength="2000" />
+    <Property Name="MEDIOS_OTROS" Type="varchar2" MaxLength="2000" />
+    <Property Name="MEDIOS_OTROS_PDTE_VAL" Type="varchar2" MaxLength="2000" />
+    <Property Name="TEMPORALIDAD" Type="varchar2" MaxLength="2000" />
+    <Property Name="TEMPORALIDAD_PDTE_VAL" Type="varchar2" MaxLength="2000" />
+    <Property Name="INDICADOR_SEGUIMIENTO" Type="varchar2" MaxLength="2000" />
+    <Property Name="INDICADOR_SEGUIMIENTO_PDTE_VAL" Type="varchar2" MaxLength="2000" />
+    <Property Name="OBJETIVO_CONTENIDO_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ESTADO_SEGUIMIENTO_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="ESTADO_SEGUIMIENTO_ID_PDTE_VAL" Type="number" Precision="10" Scale="0" />
+    <Property Name="ORGANO_RESPONSABLE" Type="varchar2" MaxLength="500" />
+    <Property Name="ORGANO_RESPONSABLE_PDTE_VAL" Type="varchar2" MaxLength="500" />
+    <Property Name="SEGUIMIENTO" Type="clob" />
+    <Property Name="SEGUIMIENTO_PDTE_VAL" Type="clob" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar2" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar2" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar2" MaxLength="128" />
+    <Property Name="ClaimType" Type="nvarchar2" MaxLength="256" />
+    <Property Name="ClaimValue" Type="nvarchar2" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar2" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar2" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar2" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar2" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar2" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar2" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar2" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="number" Precision="1" Scale="0" />
+    <Property Name="PasswordHash" Type="nvarchar2" MaxLength="256" />
+    <Property Name="SecurityStamp" Type="nvarchar2" MaxLength="256" />
+    <Property Name="PhoneNumber" Type="nvarchar2" MaxLength="256" />
+    <Property Name="PhoneNumberConfirmed" Type="number" Precision="1" Scale="0" />
+    <Property Name="TwoFactorEnabled" Type="number" Precision="1" Scale="0" />
+    <Property Name="LockoutEndDateUtc" Type="timestamp" Precision="6" />
+    <Property Name="LockoutEnabled" Type="number" Precision="1" Scale="0" />
+    <Property Name="AccessFailedCount" Type="number" Precision="10" Scale="0" />
+    <Property Name="UserName" Type="nvarchar2" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="CONTENIDO">
+    <Key>
+      <PropertyRef Name="CONTENIDO_ID" />
+    </Key>
+    <Property Name="CONTENIDO_ID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AUTOR_CREACION_USUARIO_ID" Type="nvarchar2" MaxLength="128" Nullable="false" />
+    <Property Name="FECHA_CREACION" Type="date" Nullable="false" />
+    <Property Name="AUTOR_MODIFICACION_USUARIO_ID" Type="nvarchar2" MaxLength="128" />
+    <Property Name="FECHA_MODIFICACION" Type="date" />
+    <Property Name="VALIDADOR_USUARIO_ID" Type="nvarchar2" MaxLength="128" />
+    <Property Name="ESTADO_VALIDACION_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TIPO_CAMBIO_CONTENIDO_ID" Type="number" Precision="10" Scale="0" />
+    <Property Name="DEPARTAMENTO_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="VISIBLE" Type="number" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="COMENTARIO_VALIDADOR" Type="varchar2" MaxLength="350" />
+  </EntityType>
+  <EntityType Name="DEPARTAMENTO">
+    <Key>
+      <PropertyRef Name="DEPARTAMENTO_ID" />
+    </Key>
+    <Property Name="DEPARTAMENTO_ID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="250" Nullable="false" />
+    <Property Name="LEGISLATURA_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="VISIBLE" Type="number" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="ORDEN" Type="number" Precision="3" Scale="0" />
+  </EntityType>
+  <EntityType Name="ESTADOS_SEGUIMIENTO">
+    <Key>
+      <PropertyRef Name="ESTADO_SEGUIMIENTO_ID" />
+    </Key>
+    <Property Name="ESTADO_SEGUIMIENTO_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTADOS_VALIDACION">
+    <Key>
+      <PropertyRef Name="ESTADO_VALIDACION_ID" />
+    </Key>
+    <Property Name="ESTADO_VALIDACION_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LEGISLATURA">
+    <Key>
+      <PropertyRef Name="LEGISLATURA_ID" />
+    </Key>
+    <Property Name="LEGISLATURA_ID" Type="number" Precision="10" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="50" Nullable="false" />
+    <Property Name="ACTUAL" Type="number" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="FECHA_INICIO" Type="date" />
+    <Property Name="FECHA_FIN" Type="date" />
+  </EntityType>
+  <EntityType Name="OBJETIVO">
+    <Key>
+      <PropertyRef Name="CONTENIDO_ID" />
+    </Key>
+    <Property Name="CONTENIDO_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="OBJETIVO_ESTRATEGICO" Type="varchar2" MaxLength="2000" />
+    <Property Name="OBJETIVO_ESTRATEGICO_PDTE_VAL" Type="varchar2" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="TIPO_CAMBIO_CONTENIDO">
+    <Key>
+      <PropertyRef Name="TIPO_CAMBIO_ID" />
+    </Key>
+    <Property Name="TIPO_CAMBIO_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TIPO_CAMBIO" Type="varchar2" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="USUARIOID" />
+    </Key>
+    <Property Name="USUARIOID" Type="nvarchar2" MaxLength="128" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="75" Nullable="false" />
+    <Property Name="APELLIDOS" Type="varchar2" MaxLength="150" Nullable="false" />
+    <Property Name="DEPARTAMENTOID" Type="number" Precision="10" Scale="0" />
+    <Property Name="ULTIMO_ACCESO" Type="date" />
+    <Property Name="FECHA_ALTA" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="CONTENIDO_R01">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+    <End Role="CONTENIDO" Type="Self.CONTENIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="USUARIOID" />
+      </Principal>
+      <Dependent Role="CONTENIDO">
+        <PropertyRef Name="AUTOR_CREACION_USUARIO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTENIDO_R02">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+    <End Role="CONTENIDO" Type="Self.CONTENIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="USUARIOID" />
+      </Principal>
+      <Dependent Role="CONTENIDO">
+        <PropertyRef Name="AUTOR_MODIFICACION_USUARIO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTENIDO_R03">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+    <End Role="CONTENIDO" Type="Self.CONTENIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="USUARIOID" />
+      </Principal>
+      <Dependent Role="CONTENIDO">
+        <PropertyRef Name="VALIDADOR_USUARIO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTENIDO_R04">
+    <End Role="ESTADOS_VALIDACION" Type="Self.ESTADOS_VALIDACION" Multiplicity="1" />
+    <End Role="CONTENIDO" Type="Self.CONTENIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS_VALIDACION">
+        <PropertyRef Name="ESTADO_VALIDACION_ID" />
+      </Principal>
+      <Dependent Role="CONTENIDO">
+        <PropertyRef Name="ESTADO_VALIDACION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTENIDO_R05">
+    <End Role="TIPO_CAMBIO_CONTENIDO" Type="Self.TIPO_CAMBIO_CONTENIDO" Multiplicity="0..1" />
+    <End Role="CONTENIDO" Type="Self.CONTENIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_CAMBIO_CONTENIDO">
+        <PropertyRef Name="TIPO_CAMBIO_ID" />
+      </Principal>
+      <Dependent Role="CONTENIDO">
+        <PropertyRef Name="TIPO_CAMBIO_CONTENIDO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTENIDO_R06">
+    <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="1" />
+    <End Role="CONTENIDO" Type="Self.CONTENIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTAMENTO">
+        <PropertyRef Name="DEPARTAMENTO_ID" />
+      </Principal>
+      <Dependent Role="CONTENIDO">
+        <PropertyRef Name="DEPARTAMENTO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserClaims_Users">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogins_Users">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Roles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRoles_Users">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C008218">
+    <End Role="LEGISLATURA" Type="Self.LEGISLATURA" Multiplicity="1" />
+    <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LEGISLATURA">
+        <PropertyRef Name="LEGISLATURA_ID" />
+      </Principal>
+      <Dependent Role="DEPARTAMENTO">
+        <PropertyRef Name="LEGISLATURA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C008219">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="USUARIOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C008220">
+    <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="0..1" />
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTAMENTO">
+        <PropertyRef Name="DEPARTAMENTO_ID" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="DEPARTAMENTOID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C008227">
+    <End Role="CONTENIDO" Type="Self.CONTENIDO" Multiplicity="1" />
+    <End Role="OBJETIVO" Type="Self.OBJETIVO" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CONTENIDO">
+        <PropertyRef Name="CONTENIDO_ID" />
+      </Principal>
+      <Dependent Role="OBJETIVO">
+        <PropertyRef Name="CONTENIDO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C008228">
+    <End Role="ESTADOS_SEGUIMIENTO" Type="Self.ESTADOS_SEGUIMIENTO" Multiplicity="0..1" />
+    <End Role="ACCION" Type="Self.ACCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS_SEGUIMIENTO">
+        <PropertyRef Name="ESTADO_SEGUIMIENTO_ID" />
+      </Principal>
+      <Dependent Role="ACCION">
+        <PropertyRef Name="ESTADO_SEGUIMIENTO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C008229">
+    <End Role="ESTADOS_SEGUIMIENTO" Type="Self.ESTADOS_SEGUIMIENTO" Multiplicity="0..1" />
+    <End Role="ACCION" Type="Self.ACCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS_SEGUIMIENTO">
+        <PropertyRef Name="ESTADO_SEGUIMIENTO_ID" />
+      </Principal>
+      <Dependent Role="ACCION">
+        <PropertyRef Name="ESTADO_SEGUIMIENTO_ID_PDTE_VAL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C008230">
+    <End Role="CONTENIDO" Type="Self.CONTENIDO" Multiplicity="1" />
+    <End Role="ACCION" Type="Self.ACCION" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CONTENIDO">
+        <PropertyRef Name="CONTENIDO_ID" />
+      </Principal>
+      <Dependent Role="ACCION">
+        <PropertyRef Name="CONTENIDO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C008231">
+    <End Role="OBJETIVO" Type="Self.OBJETIVO" Multiplicity="1" />
+    <End Role="ACCION" Type="Self.ACCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJETIVO">
+        <PropertyRef Name="CONTENIDO_ID" />
+      </Principal>
+      <Dependent Role="ACCION">
+        <PropertyRef Name="OBJETIVO_CONTENIDO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ESAragonPLGOdataStoreContainer">
+    <EntitySet Name="ACCION" EntityType="Self.ACCION" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="CONTENIDO" EntityType="Self.CONTENIDO" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="ESTADOS_SEGUIMIENTO" EntityType="Self.ESTADOS_SEGUIMIENTO" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="ESTADOS_VALIDACION" EntityType="Self.ESTADOS_VALIDACION" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="LEGISLATURA" EntityType="Self.LEGISLATURA" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="OBJETIVO" EntityType="Self.OBJETIVO" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="TIPO_CAMBIO_CONTENIDO" EntityType="Self.TIPO_CAMBIO_CONTENIDO" Schema="PLGO_OWN" store:Type="Tables" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="PLGO_OWN" store:Type="Tables" />
+    <AssociationSet Name="CONTENIDO_R01" Association="Self.CONTENIDO_R01">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="CONTENIDO_R02" Association="Self.CONTENIDO_R02">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="CONTENIDO_R03" Association="Self.CONTENIDO_R03">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="CONTENIDO_R04" Association="Self.CONTENIDO_R04">
+      <End Role="ESTADOS_VALIDACION" EntitySet="ESTADOS_VALIDACION" />
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="CONTENIDO_R05" Association="Self.CONTENIDO_R05">
+      <End Role="TIPO_CAMBIO_CONTENIDO" EntitySet="TIPO_CAMBIO_CONTENIDO" />
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="CONTENIDO_R06" Association="Self.CONTENIDO_R06">
+      <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserClaims_Users" Association="Self.FK_UserClaims_Users">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogins_Users" Association="Self.FK_UserLogins_Users">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Roles" Association="Self.FK_UserRoles_Roles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRoles_Users" Association="Self.FK_UserRoles_Users">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C008218" Association="Self.SYS_C008218">
+      <End Role="LEGISLATURA" EntitySet="LEGISLATURA" />
+      <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C008219" Association="Self.SYS_C008219">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C008220" Association="Self.SYS_C008220">
+      <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C008227" Association="Self.SYS_C008227">
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+      <End Role="OBJETIVO" EntitySet="OBJETIVO" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C008228" Association="Self.SYS_C008228">
+      <End Role="ESTADOS_SEGUIMIENTO" EntitySet="ESTADOS_SEGUIMIENTO" />
+      <End Role="ACCION" EntitySet="ACCION" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C008229" Association="Self.SYS_C008229">
+      <End Role="ESTADOS_SEGUIMIENTO" EntitySet="ESTADOS_SEGUIMIENTO" />
+      <End Role="ACCION" EntitySet="ACCION" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C008230" Association="Self.SYS_C008230">
+      <End Role="CONTENIDO" EntitySet="CONTENIDO" />
+      <End Role="ACCION" EntitySet="ACCION" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C008231" Association="Self.SYS_C008231">
+      <End Role="OBJETIVO" EntitySet="OBJETIVO" />
+      <End Role="ACCION" EntitySet="ACCION" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

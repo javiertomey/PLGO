@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ESAragonPLGOdataStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="ES.Aragon.PLGO.data.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="ES.Aragon.PLGO.data.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="ES.Aragon.PLGO.data.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="ES.Aragon.PLGO.data.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="ES.Aragon.PLGO.data.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="LEGISLATURA">
+      <EntityTypeMapping TypeName="ES.Aragon.PLGO.data.LEGISLATURA">
+        <MappingFragment StoreEntitySet="LEGISLATURA">
+          <ScalarProperty Name="FECHA_FIN" ColumnName="FECHA_FIN" />
+          <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+          <ScalarProperty Name="ACTUAL" ColumnName="ACTUAL" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="LEGISLATURA_ID" ColumnName="LEGISLATURA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONTENIDO">
+      <EntityTypeMapping TypeName="IsTypeOf(ES.Aragon.PLGO.data.CONTENIDO)">
+        <MappingFragment StoreEntitySet="CONTENIDO">
+          <ScalarProperty Name="CONTENIDO_ID" ColumnName="CONTENIDO_ID" />
+          <ScalarProperty Name="COMENTARIO_VALIDADOR" ColumnName="COMENTARIO_VALIDADOR" />
+          <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+          <ScalarProperty Name="DEPARTAMENTO_ID" ColumnName="DEPARTAMENTO_ID" />
+          <ScalarProperty Name="TIPO_CAMBIO_CONTENIDO_ID" ColumnName="TIPO_CAMBIO_CONTENIDO_ID" />
+          <ScalarProperty Name="ESTADO_VALIDACION_ID" ColumnName="ESTADO_VALIDACION_ID" />
+          <ScalarProperty Name="VALIDADOR_USUARIO_ID" ColumnName="VALIDADOR_USUARIO_ID" />
+          <ScalarProperty Name="FECHA_MODIFICACION" ColumnName="FECHA_MODIFICACION" />
+          <ScalarProperty Name="AUTOR_MODIFICACION_USUARIO_ID" ColumnName="AUTOR_MODIFICACION_USUARIO_ID" />
+          <ScalarProperty Name="FECHA_CREACION" ColumnName="FECHA_CREACION" />
+          <ScalarProperty Name="AUTOR_CREACION_USUARIO_ID" ColumnName="AUTOR_CREACION_USUARIO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ES.Aragon.PLGO.data.OBJETIVO)">
+        <MappingFragment StoreEntitySet="OBJETIVO">
+          <ScalarProperty Name="OBJETIVO_ESTRATEGICO" ColumnName="OBJETIVO_ESTRATEGICO" />
+          <ScalarProperty Name="OBJETIVO_ESTRATEGICO_PDTE_VAL" ColumnName="OBJETIVO_ESTRATEGICO_PDTE_VAL" />
+          <ScalarProperty Name="CONTENIDO_ID" ColumnName="CONTENIDO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ES.Aragon.PLGO.data.ACCION)">
+        <MappingFragment StoreEntitySet="ACCION">
+          <ScalarProperty Name="CONTENIDO_ID" ColumnName="CONTENIDO_ID" />
+          <ScalarProperty Name="RECURSOS_HUMANOS" ColumnName="RECURSOS_HUMANOS" />
+          <ScalarProperty Name="RECURSOS_HUMANOS_PDTE_VAL" ColumnName="RECURSOS_HUMANOS_PDTE_VAL" />
+          <ScalarProperty Name="COSTE_ECONOMICO" ColumnName="COSTE_ECONOMICO" />
+          <ScalarProperty Name="COSTE_ECONOMICO_PDTE_VAL" ColumnName="COSTE_ECONOMICO_PDTE_VAL" />
+          <ScalarProperty Name="INSTRUMENTOS_ACT" ColumnName="INSTRUMENTOS_ACT" />
+          <ScalarProperty Name="INSTRUMENTOS_ACT_PDTE_VAL" ColumnName="INSTRUMENTOS_ACT_PDTE_VAL" />
+          <ScalarProperty Name="MEDIOS_OTROS" ColumnName="MEDIOS_OTROS" />
+          <ScalarProperty Name="MEDIOS_OTROS_PDTE_VAL" ColumnName="MEDIOS_OTROS_PDTE_VAL" />
+          <ScalarProperty Name="TEMPORALIDAD" ColumnName="TEMPORALIDAD" />
+          <ScalarProperty Name="TEMPORALIDAD_PDTE_VAL" ColumnName="TEMPORALIDAD_PDTE_VAL" />
+          <ScalarProperty Name="INDICADOR_SEGUIMIENTO" ColumnName="INDICADOR_SEGUIMIENTO" />
+          <ScalarProperty Name="INDICADOR_SEGUIMIENTO_PDTE_VAL" ColumnName="INDICADOR_SEGUIMIENTO_PDTE_VAL" />
+          <ScalarProperty Name="OBJETIVO_CONTENIDO_ID" ColumnName="OBJETIVO_CONTENIDO_ID" />
+          <ScalarProperty Name="ESTADO_SEGUIMIENTO_ID" ColumnName="ESTADO_SEGUIMIENTO_ID" />
+          <ScalarProperty Name="ESTADO_SEGUIMIENTO_ID_PDTE_VAL" ColumnName="ESTADO_SEGUIMIENTO_ID_PDTE_VAL" />
+          <ScalarProperty Name="ORGANO_RESPONSABLE" ColumnName="ORGANO_RESPONSABLE" />
+          <ScalarProperty Name="ORGANO_RESPONSABLE_PDTE_VAL" ColumnName="ORGANO_RESPONSABLE_PDTE_VAL" />
+          <ScalarProperty Name="SEGUIMIENTO" ColumnName="SEGUIMIENTO" />
+          <ScalarProperty Name="SEGUIMIENTO_PDTE_VAL" ColumnName="SEGUIMIENTO_PDTE_VAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTAMENTO">
+      <EntityTypeMapping TypeName="ES.Aragon.PLGO.data.DEPARTAMENTO">
+        <MappingFragment StoreEntitySet="DEPARTAMENTO">
+          <ScalarProperty Name="ORDEN" ColumnName="ORDEN" />
+          <ScalarProperty Name="VISIBLE" ColumnName="VISIBLE" />
+          <ScalarProperty Name="LEGISLATURA_ID" ColumnName="LEGISLATURA_ID" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="DEPARTAMENTO_ID" ColumnName="DEPARTAMENTO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADOS_SEGUIMIENTO">
+      <EntityTypeMapping TypeName="ES.Aragon.PLGO.data.ESTADOS_SEGUIMIENTO">
+        <MappingFragment StoreEntitySet="ESTADOS_SEGUIMIENTO">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="ESTADO_SEGUIMIENTO_ID" ColumnName="ESTADO_SEGUIMIENTO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADOS_VALIDACION">
+      <EntityTypeMapping TypeName="ES.Aragon.PLGO.data.ESTADOS_VALIDACION">
+        <MappingFragment StoreEntitySet="ESTADOS_VALIDACION">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="ESTADO_VALIDACION_ID" ColumnName="ESTADO_VALIDACION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_CAMBIO_CONTENIDO">
+      <EntityTypeMapping TypeName="ES.Aragon.PLGO.data.TIPO_CAMBIO_CONTENIDO">
+        <MappingFragment StoreEntitySet="TIPO_CAMBIO_CONTENIDO">
+          <ScalarProperty Name="TIPO_CAMBIO" ColumnName="TIPO_CAMBIO" />
+          <ScalarProperty Name="TIPO_CAMBIO_ID" ColumnName="TIPO_CAMBIO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOS">
+      <EntityTypeMapping TypeName="ES.Aragon.PLGO.data.USUARIOS">
+        <MappingFragment StoreEntitySet="USUARIOS">
+          <ScalarProperty Name="FECHA_ALTA" ColumnName="FECHA_ALTA" />
+          <ScalarProperty Name="ULTIMO_ACCESO" ColumnName="ULTIMO_ACCESO" />
+          <ScalarProperty Name="DEPARTAMENTOID" ColumnName="DEPARTAMENTOID" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="USUARIOID" ColumnName="USUARIOID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
